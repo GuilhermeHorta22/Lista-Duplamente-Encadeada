@@ -36,7 +36,7 @@ void inserirInicio(descritor *desc, int info)
 	}
 }
 
-void inserirFinal(listaDp **lista, int info)
+void inserirFinal(descritor *descritor, int info)
 {
 	listaDp *novo = (listaDp*)malloc(sizeof(listaDp));
 	novo->info = info;
@@ -51,12 +51,12 @@ void inserirFinal(listaDp **lista, int info)
 	}
 }
 
-listaDp *buscar(listaDp *lista, int info)
+listaDp *buscar(descritor *descritor, int info)
 {
 	
 }
 
-int exclui(listaDp **lista, int info)
+int exclui(descritor *desc, int info)
 {
 	
 }

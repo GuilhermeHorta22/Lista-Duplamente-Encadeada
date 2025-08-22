@@ -68,7 +68,7 @@ int main()
 				printf("\nNumero: ");
 				scanf("%d",&num);
 				
-				aux = buscar(lista,num);
+				aux = buscar(desc,num);
 				
 				if(aux == NULL)
 					printf("\nNao foi encontrado o numero!");
@@ -83,7 +83,7 @@ int main()
 				printf("\nNumero: ");
 				scanf("%d",&num);
 				
-				flag = exclui(lista,num);
+				flag = exclui(desc,num);
 				
 				if(flag == 1) //deu certo
 					printf("\nNumero excluido!");
