@@ -36,7 +36,7 @@ void inserirInicio(descritor *desc, int info)
 	}
 }
 
-void inserirFinal(descritor *descritor, int info)
+void inserirFinal(descritor *desc, int info)
 {
 	listaDp *novo = (listaDp*)malloc(sizeof(listaDp));
 	novo->info = info;
@@ -51,7 +51,7 @@ void inserirFinal(descritor *descritor, int info)
 	}
 }
 
-listaDp *buscar(descritor *descritor, int info)
+listaDp *buscar(descritor *desc, int info)
 {
 	listaDp *aux = desc->inicio;
 	
@@ -100,5 +100,16 @@ int exclui(descritor *desc, int info)
 			}
 			free(aux);
 		}
+	}
+}
+
+void exibe(descritor *desc)
+{
+	listaDp *aux = desc->inicio;
+	
+	while(aux != NULL)
+	{
+		printf("%d\t",aux->info);
+		aux = aux->prox;
 	}
 }

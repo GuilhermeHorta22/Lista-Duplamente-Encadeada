@@ -13,9 +13,11 @@ char menu()
 	printf("### MENU ###\n");
 	printf("\n[A] - Inicializar lista");
 	printf("\n[B] - Inserir no inicio");
-	printf("\n[C] - Buscar elemento");
-	printf("\n[D] - Excluir elemento");
-	printf("\n[E] - Verifica se esta vazia");
+	printf("\n[C] - Inserir no final");
+	printf("\n[D] - Buscar elemento");
+	printf("\n[E] - Excluir elemento");
+	printf("\n[F] - Verifica se esta vazia");
+	printf("\n[G] - Exibe lista");
 	printf("\n[ESC] - Sair");
 	printf("\nOpcao: ");
 	return toupper(getche());
@@ -23,7 +25,7 @@ char menu()
 
 int main()
 {
-	descritor *desc;
+	descritor *desc = (descritor*)malloc(sizeof(descritor)); //alocando caixinha na memoria
 	listaDp *aux;
 	
 	char op;
@@ -31,8 +33,8 @@ int main()
 	
 	do
 	{
-		system("cls");
 		op = menu();
+		printf("\n\n");
 		switch(op)
 		{
 			case 'A':
@@ -48,7 +50,7 @@ int main()
 				printf("\nNumero: ");
 				scanf("%d",&num);
 				
-				inserirInicio(&desc,num);
+				inserirInicio(desc,num);
 				
 				break;
 				
@@ -58,7 +60,7 @@ int main()
 				printf("\nNumero: ");
 				scanf("%d",&num);
 				
-				inserirFinal(&desc,num);
+				inserirFinal(desc,num);
 				
 				break;
 				
@@ -92,12 +94,32 @@ int main()
 					
 				break;
 				
+			case 'F':
+				printf("*** VERIFICA SE ESTA VAZIA ***\n");
+				
+				op = isEmpty(desc);
+				
+				if(op == 1)
+					printf("\nEsta vazia!");
+				else
+					printf("\nNao esta vazia!");
+				
+				break;
+				
+			case 'G':
+				printf("*** EXIBE LISTA ***\n");
+				
+				exibe(desc);
+				
+				break;
+				
 			case 27:
 				printf("*** PROGRAMA ENCERRADO ***");
 				
 				break;
 				
-			getch();
 		}
+		getch();
+		system("cls");
 	}while(op != 27);
 }
